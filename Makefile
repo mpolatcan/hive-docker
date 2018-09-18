@@ -1,12 +1,12 @@
 .PHONY: publish-hive
 publish-hive:
-	sudo docker build -q -t mpolatcan/hive:ubuntu-3.0.0-hadoop-3.1.0 --build-arg HIVE_VERSION="3.0.0" --build-arg HADOOP_VERSION="3.1.0" ./ubuntu/
-	sudo docker push mpolatcan/hive:ubuntu-3.0.0-hadoop-3.1.0
-	sudo docker rmi mpolatcan/hive:ubuntu-3.0.0-hadoop-3.1.0
+	sudo docker build -q -t mpolatcan/hive:ubuntu-3.0.0-hadoop-3.1.1 --build-arg HIVE_VERSION="3.0.0" --build-arg HADOOP_VERSION="3.1.1" ./ubuntu/
+	sudo docker push mpolatcan/hive:ubuntu-3.0.0-hadoop-3.1.1
+	sudo docker rmi mpolatcan/hive:ubuntu-3.0.0-hadoop-3.1.1
 
-	sudo docker build -q -t mpolatcan/hive:alpine-3.0.0-hadoop-3.1.0 --build-arg HIVE_VERSION="3.0.0" --build-arg HADOOP_VERSION="3.1.0" ./alpine/
-	sudo docker push mpolatcan/hive:alpine-3.0.0-hadoop-3.1.0
-	sudo docker rmi mpolatcan/hive:alpine-3.0.0-hadoop-3.1.0
+	sudo docker build -q -t mpolatcan/hive:alpine-3.0.0-hadoop-3.1.1 --build-arg HIVE_VERSION="3.0.0" --build-arg HADOOP_VERSION="3.1.1" ./alpine/
+	sudo docker push mpolatcan/hive:alpine-3.0.0-hadoop-3.1.1
+	sudo docker rmi mpolatcan/hive:alpine-3.0.0-hadoop-3.1.1
 
 	sudo docker build -q -t mpolatcan/hive:ubuntu-3.0.0-hadoop-3.0.3 --build-arg HIVE_VERSION="3.0.0" --build-arg HADOOP_VERSION="3.0.3" ./ubuntu/
 	sudo docker push mpolatcan/hive:ubuntu-3.0.0-hadoop-3.0.3
@@ -65,13 +65,13 @@ publish-hive:
 	sudo docker rmi mpolatcan/hive:alpine-3.0.0-hadoop-2.6.5
 # ----------------------------------------------------------------------------------------------------------------------
 
-	sudo docker build -q -t mpolatcan/hive:ubuntu-2.3.3-hadoop-3.1.0 --build-arg HIVE_VERSION="2.3.3" --build-arg HADOOP_VERSION="3.1.0" ./ubuntu/
-	sudo docker push mpolatcan/hive:ubuntu-2.3.3-hadoop-3.1.0
-	sudo docker rmi mpolatcan/hive:ubuntu-2.3.3-hadoop-3.1.0
+	sudo docker build -q -t mpolatcan/hive:ubuntu-2.3.3-hadoop-3.1.1 --build-arg HIVE_VERSION="2.3.3" --build-arg HADOOP_VERSION="3.1.1" ./ubuntu/
+	sudo docker push mpolatcan/hive:ubuntu-2.3.3-hadoop-3.1.1
+	sudo docker rmi mpolatcan/hive:ubuntu-2.3.3-hadoop-3.1.1
 
-	sudo docker build -q -t mpolatcan/hive:alpine-2.3.3-hadoop-3.1.0 --build-arg HIVE_VERSION="2.3.3" --build-arg HADOOP_VERSION="3.1.0" ./alpine/
-	sudo docker push mpolatcan/hive:alpine-2.3.3-hadoop-3.1.0
-	sudo docker rmi mpolatcan/hive:alpine-2.3.3-hadoop-3.1.0
+	sudo docker build -q -t mpolatcan/hive:alpine-2.3.3-hadoop-3.1.1 --build-arg HIVE_VERSION="2.3.3" --build-arg HADOOP_VERSION="3.1.1" ./alpine/
+	sudo docker push mpolatcan/hive:alpine-2.3.3-hadoop-3.1.1
+	sudo docker rmi mpolatcan/hive:alpine-2.3.3-hadoop-3.1.1
 
 	sudo docker build -q -t mpolatcan/hive:ubuntu-2.3.3-hadoop-3.0.3 --build-arg HIVE_VERSION="2.3.3" --build-arg HADOOP_VERSION="3.0.3" ./ubuntu/
 	sudo docker push mpolatcan/hive:ubuntu-2.3.3-hadoop-3.0.3
@@ -130,13 +130,13 @@ publish-hive:
 	sudo docker rmi mpolatcan/hive:alpine-2.3.3-hadoop-2.6.5
 # ----------------------------------------------------------------------------------------------------------------------
 
-	sudo docker build -q -t mpolatcan/hive:ubuntu-1.2.2-hadoop-3.1.0 --build-arg HIVE_VERSION="1.2.2" --build-arg HADOOP_VERSION="3.1.0" ./ubuntu/
-	sudo docker push mpolatcan/hive:ubuntu-1.2.2-hadoop-3.1.0
-	sudo docker rmi mpolatcan/hive:ubuntu-1.2.2-hadoop-3.1.0
+	sudo docker build -q -t mpolatcan/hive:ubuntu-1.2.2-hadoop-3.1.1 --build-arg HIVE_VERSION="1.2.2" --build-arg HADOOP_VERSION="3.1.1" ./ubuntu/
+	sudo docker push mpolatcan/hive:ubuntu-1.2.2-hadoop-3.1.1
+	sudo docker rmi mpolatcan/hive:ubuntu-1.2.2-hadoop-3.1.1
 
-	sudo docker build -q -t mpolatcan/hive:alpine-1.2.2-hadoop-3.1.0 --build-arg HIVE_VERSION="1.2.2" --build-arg HADOOP_VERSION="3.1.0" ./alpine/
-	sudo docker push mpolatcan/hive:alpine-1.2.2-hadoop-3.1.0
-	sudo docker rmi mpolatcan/hive:alpine-1.2.2-hadoop-3.1.0
+	sudo docker build -q -t mpolatcan/hive:alpine-1.2.2-hadoop-3.1.1 --build-arg HIVE_VERSION="1.2.2" --build-arg HADOOP_VERSION="3.1.1" ./alpine/
+	sudo docker push mpolatcan/hive:alpine-1.2.2-hadoop-3.1.1
+	sudo docker rmi mpolatcan/hive:alpine-1.2.2-hadoop-3.1.1
 
 	sudo docker build -q -t mpolatcan/hive:ubuntu-1.2.2-hadoop-3.0.3 --build-arg HIVE_VERSION="1.2.2" --build-arg HADOOP_VERSION="3.0.3" ./ubuntu/
 	sudo docker push mpolatcan/hive:ubuntu-1.2.2-hadoop-3.0.3
