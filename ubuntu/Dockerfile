@@ -24,6 +24,6 @@ RUN wget ${HIVE_DOWNLOAD_LINK} && \
     chmod -R 777 ${HIVE_HOME} && \
     echo "export HADOOP_HOME=/usr/local/hadoop" >> ${HIVE_HOME}/conf/hive-env.sh && \
     chmod +x entrypoint.sh && \
-    echo "PATH=$PATH:$HIVE_HOME/bin" >> /etc/profile
+    echo "PATH=$PATH:$HIVE_HOME/bin" >> /etc/environment
 
 ENTRYPOINT ["./entrypoint.sh"]
