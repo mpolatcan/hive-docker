@@ -12,7 +12,7 @@ services:
       - 3000:8088
 
   slave:
-    image: mpolatcan/hadoop:alpine-3.1.1
+    image: mpolatcan/hadoop:alpine-2.3.3-hadoop-3.1.1
     environment:
       - HADOOP_NODE_TYPE=datanode
       - FS_HOSTNAME=master
