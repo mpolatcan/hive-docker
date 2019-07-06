@@ -12,7 +12,8 @@ MAINTAINER Mutlu Polatcan <mutlupolatcan@gmail.com>
 ENV HIVE_HOME "/usr/local/hive"
 ENV PATH $PATH:$HIVE_HOME/bin
 
-COPY entrypoint.sh hive_config_loader.sh ./
+ADD entrypoint.sh /hive_entrypoint.sh
+ADD hive_config_loader.sh /
 
 RUN wget ${HIVE_DOWNLOAD_LINK} && \
     mkdir -p ${HIVE_HOME} && \
@@ -23,7 +24,8 @@ RUN wget ${HIVE_DOWNLOAD_LINK} && \
     chown -R hduser:hadoop ${HIVE_HOME} && \
     chmod -R 777 ${HIVE_HOME} && \
     echo "export HADOOP_HOME=/usr/local/hadoop" >> ${HIVE_HOME}/conf/hive-env.sh && \
-    chmod +x entrypoint.sh && \
+    chmod +x hive_entrypoint.sh hive_config_loader.sh && \
     echo "PATH=$PATH:$HIVE_HOME/bin" >> /etc/environment
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./hive_entrypoint.sh"]
+CMD ["tail","-f","/dev/null"]
