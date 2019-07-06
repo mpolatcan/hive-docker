@@ -27,5 +27,4 @@ RUN wget ${HIVE_DOWNLOAD_LINK} && \
     chmod +x hive_entrypoint.sh hive_config_loader.sh && \
     echo "PATH=$PATH:$HIVE_HOME/bin" >> /etc/profile
 
-ENTRYPOINT ["./hive_entrypoint.sh"]
-CMD ["tail","-f","/dev/null"]
+ENTRYPOINT ["./hive_entrypoint.sh", "hive"]

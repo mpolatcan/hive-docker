@@ -10,7 +10,11 @@ function startHive() {
 }
 
 # Start Hadoop services with loaded configurations
-./hadoop_entrypoint.sh
+./hadoop_entrypoint.sh $1
 
 # Start Hive with embedded Derby database
 startHive
+
+if [[ "$1" == "hive" ]]; then
+    tail -f /dev/null
+fi
