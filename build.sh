@@ -30,7 +30,7 @@ DISTS=(
 function build_image() {
     sudo docker build -q -t mpolatcan/hive:$1-$2-hadoop-$3 --build-arg HIVE_VERSION=$2 --build-arg HADOOP_VERSION=$3 ./$1/
 	sudo docker push mpolatcan/hive:$1-$2-hadoop-$3
-	sudo docker rmi mpolatcan/hive:$1-$2-hadoop-$3
+	sudo docker rmi $(sudo docker images -q)
 }
 
 for HIVE_VERSION in ${HIVE_VERSIONS[@]}; do
