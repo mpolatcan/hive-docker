@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   master:
-    image: mpolatcan/hive:alpine-2.3.3-hadoop-3.1.1
+    image: mpolatcan/hive:alpine-2.3.5-hadoop-3.1.2
     container_name: master
     hostname: master
     environment:
@@ -12,7 +12,7 @@ services:
       - 3000:8088
 
   slave:
-    image: mpolatcan/hadoop:alpine-3.1.1
+    image: mpolatcan/hadoop:alpine-3.1.2
     environment:
       - HADOOP_NODE_TYPE=datanode
       - FS_HOSTNAME=master
