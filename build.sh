@@ -1,19 +1,17 @@
 #!/bin/bash
 
 HIVE_VERSIONS=(
-    "3.1.1"
-    "2.3.5"
+    "3.1.2"
+    "2.3.6"
     "1.2.2"
 )
 
 HADOOP_VERSIONS=(
-    "3.2.0"
+    "3.2.1"
     "3.1.2"
-    "3.0.3"
-    "2.9.1"
-    "2.8.4"
-    "2.7.6"
-    "2.6.5"
+    "2.9.2"
+    "2.8.5"
+    "2.7.7"
 )
 
 DISTS=(
@@ -25,7 +23,7 @@ DISTS=(
 # $2: HIVE_VERSION
 # $3: HADOOP_VERSION
 function build_image() {
-    sudo docker build -q -t mpolatcan/hive:$1-$2-hadoop-$3 --build-arg HIVE_VERSION=$2 --build-arg HADOOP_VERSION=$3 ./$1/
+  sudo docker build -q -t mpolatcan/hive:$1-$2-hadoop-$3 --build-arg HIVE_VERSION=$2 --build-arg HADOOP_VERSION=$3 ./$1/
 	sudo docker push mpolatcan/hive:$1-$2-hadoop-$3
 	sudo docker rmi mpolatcan/hive:$1-$2-hadoop-$3
 }
