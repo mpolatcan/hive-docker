@@ -1,6 +1,7 @@
 ARG HADOOP_VERSION=2.9.0
+ARG JAVA_VERSION=8
 
-FROM mpolatcan/hadoop:ubuntu-${HADOOP_VERSION}
+FROM mpolatcan/hadoop:${HADOOP_VERSION}-java${JAVA_VERSION}
 
 ARG HIVE_VERSION=2.3.3
 ARG HIVE_DOWNLOAD_LINK="http://www-eu.apache.org/dist/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz"

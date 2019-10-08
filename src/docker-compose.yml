@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   master:
-    image: mpolatcan/hive:ubuntu-2.3.5-hadoop-3.1.2
+    image: mpolatcan/hive:2.3.6-hadoop-3.1.2-java8
     container_name: master
     hostname: master
     environment:
@@ -12,7 +12,7 @@ services:
       - 3000:8088
 
   slave:
-    image: mpolatcan/hadoop:ubuntu-3.1.2
+    image: mpolatcan/hadoop:3.1.2-java8
     environment:
       - HADOOP_NODE_TYPE=datanode
       - FS_HOSTNAME=master
