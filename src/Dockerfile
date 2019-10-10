@@ -10,22 +10,24 @@ ARG HIVE_DOWNLOAD_LINK="http://www-eu.apache.org/dist/hive/hive-${HIVE_VERSION}/
 
 MAINTAINER Mutlu Polatcan <mutlupolatcan@gmail.com>
 
-ENV HIVE_HOME "/usr/local/hive"
+ENV HIVE_HOME "${HDUSER_HOME}/hive"
 ENV PATH $PATH:$HIVE_HOME/bin
 
-ADD entrypoint.sh /hive_entrypoint.sh
-ADD hive_config_loader.sh /
+ADD entrypoint.sh /hduser/hive_entrypoint.sh
+ADD hive_config_loader.sh /hduser/
 
+USER root
 RUN wget ${HIVE_DOWNLOAD_LINK} && \
     mkdir -p ${HIVE_HOME} && \
-    tar -xvzf apache-hive-${HIVE_VERSION}-bin.tar.gz -C /usr/local/ && \
-    mv /usr/local/apache-hive-${HIVE_VERSION}-bin/* ${HIVE_HOME} && \
-    rm -r /usr/local/apache-hive-${HIVE_VERSION}-bin && \
+    tar -xvzf apache-hive-${HIVE_VERSION}-bin.tar.gz -C ${HDUSER_HOME} && \
+    mv ${HDUSER_HOME}/apache-hive-${HIVE_VERSION}-bin/* ${HIVE_HOME} && \
+    rm -r ${HDUSER_HOME}/apache-hive-${HIVE_VERSION}-bin && \
     rm apache-hive-${HIVE_VERSION}-bin.tar.gz && \
     chown -R hduser:hadoop ${HIVE_HOME} && \
     chmod -R 777 ${HIVE_HOME} && \
-    echo "export HADOOP_HOME=/usr/local/hadoop" >> ${HIVE_HOME}/conf/hive-env.sh && \
-    chmod +x hive_entrypoint.sh hive_config_loader.sh && \
+    echo "export HADOOP_HOME=${HADOOP_HOME}" >> ${HIVE_HOME}/conf/hive-env.sh && \
+    chmod +x ${HDUSER_HOME}/hive_entrypoint.sh ${HDUSER_HOME}/hive_config_loader.sh && \
     echo "PATH=$PATH:$HIVE_HOME/bin" >> /etc/environment
 
+USER hduser
 ENTRYPOINT ["./hive_entrypoint.sh", "hive"]
