@@ -13,8 +13,8 @@ MAINTAINER Mutlu Polatcan <mutlupolatcan@gmail.com>
 ENV HIVE_HOME "${HDUSER_HOME}/hive"
 ENV PATH $PATH:$HIVE_HOME/bin
 
-ADD entrypoint.sh /hduser/hive_entrypoint.sh
-ADD hive_config_loader.sh /hduser/
+ADD entrypoint.sh ${HDUSER_HOME}/hive_entrypoint.sh
+ADD hive_config_loader.sh ${HDUSER_HOME}
 
 USER root
 RUN wget ${HIVE_DOWNLOAD_LINK} && \

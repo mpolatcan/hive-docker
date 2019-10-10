@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-function startHive() {
+function start_hive() {
     hdfs dfs -mkdir -p /tmp
     hdfs dfs -mkdir -p /user/hive/warehouse
     hdfs dfs -chmod g+w /tmp
@@ -11,7 +11,7 @@ function startHive() {
 ./hadoop_entrypoint.sh $1
 
 # Start Hive with embedded Derby database
-startHive
+start_hive
 
 if [[ "$1" == "hive" ]]; then
     tail -f /dev/null
