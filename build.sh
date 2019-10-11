@@ -16,7 +16,6 @@ HADOOP_VERSIONS=(
 
 JAVA_VERSIONS=(
     "8"
-    "11"
 )
 
 # $1: HIVE_VERSION
