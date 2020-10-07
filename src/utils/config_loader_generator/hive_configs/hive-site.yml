@@ -1,0 +1,769 @@
+hive:
+  metastore:
+    local: "true"
+    uri.selection: "RANDOM"
+    warehouse:
+      dir: "/user/hive/warehouse"
+      subdir.inherit.perms: "false"
+    execute.setugi: "true"
+    event:
+      listeners: ""
+      expiry.duration: "0"
+      clean.freq: "0"
+    partition.inherit.table.properties: ""
+    end.function.listeners: ""
+    connect.retries: "3"
+    client:
+      connect.retry.delay: "1"
+      socket.timeout: "600"
+      kerberos.principal: ""
+    batch.retrieve.max: "300"
+    ds:
+      connection.url.hook: ""
+      retry:
+        attempts: "1"
+        interval: "1000"
+    server:
+      min.threads: "200"
+      max:
+        threads: "1000"
+        message.size: "100*1024*1024"
+      tcp.keepalive: "true"
+    sasl.enabled: "false"
+    kerberos:
+      keytab.file: ""
+      principal: "hive-metastore/_HOST@EXAMPLE.COM"
+    cache.pinobjtypes: "Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+    authorization.storage.checks: "false"
+    thrift.framed.transport.enabled: "false"
+    schema.verification: "false"
+    disallow.incompatible.col.type.changes: "true"
+    integral.jdo.pushdown: "false"
+    try.direct.sql:
+      "": "true"
+      ddl: "true"
+    orm.retrieveMapNullsAsEmptyStrings: "false"
+    direct.sql.max:
+      query.length: "100"
+      elements:
+        in.clause: "1000"
+        values.clause: "1000"
+    port: "9083"
+    initial.metadata.count.enabled: "true"
+    limit.partition.request: "-1"
+    fastpath: "false"
+    jdbc.max.batch.size: "1000"
+    hbase:
+      cache:
+        size: "600s"
+        ttl: "1"
+      file.metadata.threads: "1"
+    pre.event.listeners: ""
+    token.signature: ""
+    metrics.enabled: "false"
+  execution:
+    engine: "mr"
+    mode: "container"
+  exec:
+    reducers:
+      bytes.per.reducer: "256,000,000"
+      max: "1009"
+    scratchdir: "/tmp/hive"
+    local.scratchdir: "/tmp/${user.name}"
+    script:
+      maxerrsize: "100000"
+      allow.partial.consumption: "false"
+    compress:
+      output: "false"
+      intermediate: "false"
+    parallel:
+      "": "false"
+      thread.number: "8"
+    rowoffset: "false"
+    pre.hooks: ""
+    post.hooks: ""
+    failure.hooks: ""
+    counters.pull.interval: "1000"
+    dynamic.partition:
+      "": "true"
+      mode: "strict"
+    max.dynamic.partitions:
+      "": "1000"
+      pernode: "100"
+    max.created.files: "100000"
+    default.partition.name: "__HIVE_DEFAULT_PARTITION__"
+    mode.local.auto:
+      "": "false"
+      inputbytes.max: "134217728"
+      tasks.max: "4"
+      input.files.max: "4"
+    drop.ignorenonexistent: "true"
+    show.job.failure.debug.info: "true"
+    perf.logger: "org.apache.hadoop.hive.ql.log.PerfLogger"
+    check.crossproducts: "true"
+    temporary.table.storage: "default"
+    copyfile:
+      maxnumfiles: "1"
+      maxsize: "32 megabytes"
+    stagingdir: ".hive-staging"
+    orc:
+      memory.pool: "0.5"
+      write.format: ""
+      base.delta.ratio: "8"
+      default:
+        stripe.size: "64*1024*1024"
+        block.size: "256*1024*1024"
+        row.index.stride: "10000"
+        buffer.size: "256*1024"
+        block.padding:
+          "": "true"
+          tolerance: "0.05"
+        compress: "ZLIB"
+        encoding.strategy: "SPEED"
+      dictionary.key.size.threshold: "0.8"
+      split.strategy: "HYBRID"
+      skip.corrupt.data: "false"
+      zerocopy: "false"
+      compression.strategy: "SPEED"
+    concatenate.check.index: "true"
+    input.listing.max.threads: "0"
+    submit.local.task.via.child: "true"
+  jar:
+    path: ""
+    directory: "null"
+  aux.jars.path: ""
+  reloadable.aux.jars.path: ""
+  scratch.dir.permission: "700"
+  hadoop.supports.splittable.combineinputformat: "false"
+  map:
+    aggr:
+      "": "true"
+      hash:
+        force.flush.memory.threshold: "0.9"
+        percentmemory: "0.5"
+        min.reduction: "0.5"
+    groupby.sorted:
+      "": "true"
+      testmode: "false"
+  groupby:
+    skewindata: "false"
+    mapaggr.checkinterval: "100000"
+    orderby.position.alias: "false"
+    position.alias: "false"
+  new.job.grouping.set.cardinality: "30"
+  mapred:
+    local.mem: "0"
+    supports.subdirectories: "false"
+    mapred.mode: "strict"
+    reduce.tasks.speculative.execution: "true"
+  optimize:
+    groupby: "true"
+    countdistinct: "true"
+    remove.sq_count_check: "false"
+    cp: "true"
+    index:
+      filter:
+        "": "false"
+        compact:
+          minsize: "5368709120"
+          maxsize: "-1"
+      autoupdate: "false"
+      groupby: "false"
+      compact.binary.search: "true"
+    ppd:
+      "": "false"
+      storage: "true"
+    skewjoin:
+      "": "false"
+      compiletime: "false"
+    union.remove: "false"
+    bucketingsorting: "true"
+    reduceduplication:
+      "": "true"
+      min.reducer: "4"
+    correlation: "false"
+    limittranspose:
+      "": "false"
+      reductionpercentage: "1.0"
+      reductiontuples: "0"
+    filter.stats.reduction: "false"
+    sort.dynamic.partition: "false"
+    null.scan: "true"
+    sampling.orderby:
+      "": "false"
+      number: "1000"
+      percent: "0.1"
+    constant.propagation: "true"
+    distinct.rewrite: "true"
+    point.lookup:
+      "": "true"
+      min: "31"
+  multigroupby:
+    singlemr: "false"
+    singlereducer: "true"
+  ppd:
+    remove.duplicatefilters: "true"
+    recognizetransivity: "true"
+  join:
+    emit.interval: "1000"
+    cache.size: "25000"
+  mapjoin:
+    bucket.cache.size: "100"
+    followby:
+      map.aggr.hash.percentmemory: "0.3"
+      gby.localtask.max.memory.usage: "0.55"
+    smalltable.filesize: "25000000"
+    localtask.max.memory.usage: "0.90"
+    check.memory.rows: "100000"
+    optimized:
+      keys: "true"
+      hashtable:
+        "": "true"
+        wbsize: "10485760"
+    lazy.hashtable: "true"
+  ignore.mapjoin.hint: "true"
+  smbjoin.cache.rows: "10000"
+  hashtable:
+    initialCapacity: "100000"
+    key.count.adjustment: "1.0"
+    loadfactor: "0.75"
+  debug.localtask: "false"
+  outerjoin.supports.filters: "true"
+  skewjoin:
+    key: "100000"
+    mapjoin:
+      map.tasks: "10000"
+      min.split: "33554432"
+  script:
+    auto.progress: "false"
+    operator:
+      id.env.var: "HIVE_SCRIPT_OPERATOR_ID"
+      env.blacklist: "hive.txn.valid.txns,hive.script.operator.env.blacklist"
+    serde: "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe"
+    recordreader: "org.apache.hadoop.hive.ql.exec.TextRecordReader"
+    recordwriter: "org.apache.hadoop.hive.ql.exec.TextRecordWriter"
+  task.progress: "false"
+  counters.group.name: "HIVE"
+  merge:
+    mapfiles: "true"
+    mapredfiles: "false"
+    size.per.task: "256000000"
+    smallfiles.avgsize: "16000000"
+    nway.joins: "true"
+    orcfile.stripe.level: "true"
+    sparkfiles: "false"
+    tezfiles: "false"
+  heartbeat.interval: "1000"
+  auto.convert:
+    join:
+      "": "true"
+      noconditionaltask:
+        "": "true"
+        size: "10000000"
+      use.nonstaged: "false"
+  udtf.auto.progress: "false"
+  cbo:
+    enable: "true"
+    returnpath.hiveop: "false"
+    cnf.maxnodes: "-1"
+  auto.progress.timeout: "0"
+  table.parameters.default: ""
+  variable.subsitute: "true"
+  error.on.empty.partition: "false"
+  exim.uri.scheme.whitelist: "hdfs,pfile,file"
+  limit:
+    row.max.size: "100000"
+    optimize:
+      limit.file: "10"
+      enable: "false"
+      fetch.max: "50000"
+    pushdown.memory.usage: "-1"
+    query.max.table.partition: "-1"
+  rework.mapredwork: "false"
+  sample.seednumber: "0"
+  autogen.columnalias:
+    prefix:
+      label: "_c"
+      includefuncname: "false"
+  start.cleanup.scratchdir: "false"
+  scratchdir.lock: "false"
+  output.file.extension: ""
+  insert.into.multilevel.dirs: "false"
+  conf.validation: "true"
+  fetch:
+    output.serde: "org.apache.hadoop.hive.serde2.DelimitedJSONSerDe"
+    task:
+      conversion:
+        "": "more"
+        threshold: "1073741824"
+      aggr: "False"
+  orderby.position.alias: "true"
+  cache.expr.evaluation: "true"
+  resultset.use.unique.column.names: "true"
+  support.quoted.identifiers: "column"
+  plan.serialization.format: "kryo"
+  display.partition.cols.separately: "true"
+  files.umask.value: "0002"
+  compat: "0.12"
+  entity.capture.transform: "false"
+  support.sql11.reserved.keywords: "true"
+  log.explain.output: "false"
+  explain.user: "false"
+  typecheck.on.insert: "true"
+  allow.udf.load.on.demand: "false"
+  async.log.enabled: "true"
+  msck.repair.batch.size: "0"
+  query:
+    lifetime.hooks: ""
+    result.fileformat: "SequenceFile"
+  remove.orderby.in.subquery: "true:"
+  default:
+    serde: "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe"
+    fileformat:
+      "": "TextFile"
+      managed: "none"
+      check: "true"
+  lazysimple.extended_boolean_literal: "false"
+  io:
+    exception.handlers: ""
+    rcfile:
+      record.interval: "2147483647"
+      column.number.conf: "0"
+      tolerate.corruptions: "false"
+      record.buffer.size: "4194304"
+    sarg.cache.max.weight.mb: "10"
+  input.format: "org.apache.hadoop.hive.ql.io.CombineHiveInputFormat"
+  orc:
+    splits.include.file.footer: "false"
+    cache:
+      stripe.details.size: "10000"
+      use.soft.references: "false"
+    compute.splits.num.threas: "10"
+    row.index.stride.dictionary.check: "true"
+  parquet.timestamp.skip.conversion: "true"
+  avro.timestamp.skip.conversion: "false"
+  vectorized:
+    execution:
+      enabled: "false"
+      reduce:
+        enabled: "true"
+        groupby.enabled: "true"
+      reducesink.new.enabled: "true"
+      mapjoin:
+        native:
+          enabled: "true"
+          multikey.only.enabled: "false"
+          minmax.enabled: "false"
+          fast.hashtabl.enabled: "false"
+        overflow.repeated.threshold: "-1"
+    groupby:
+      checkinterval: "100000"
+      maxentries: "1000000"
+    use:
+      vectorized.input.format: "true"
+      vector.serde.deserialize: "false"
+      row.serde.deserialize: "false"
+    input.format.excludes: ""
+  server2:
+    thrift:
+      port: "10000"
+      bind.host: "localhost"
+      min.worker.threads: "5"
+      max.worker.threads: "500"
+      worker.keepalive.time: "60"
+      max.message.size: "100*1024*1024"
+      http:
+        port: "10001"
+        path: "cliservice"
+        min.worker.threads: "5"
+        max.worker.threads: "500"
+        max.idle.time: "1800s"
+        worker.keepalive.time: "60"
+        cookie:
+          auth.enabled: "true"
+          max.age: "86400s"
+          path: ""
+          domain: ""
+          is.secure: "true"
+          is.httponly: "true"
+      sasl.qop: "auth"
+    authentication:
+      "": "NONE"
+      kerberos:
+        keytab: ""
+        principal: ""
+      client.kerberos.principal: ""
+      ldap:
+        url: ""
+        basenDN: ""
+        guidKey: "uid"
+        Domain: ""
+        groupDNPattern: ""
+        groupFilter: ""
+        groupMembershipKey: "member"
+        userMembershipKey: "null"
+        groupClassKey: "groupOfNames"
+        userDNPattern: ""
+        userFilter: ""
+        customLDAPQuery: ""
+        binddn: ""
+        bindpw: ""
+      spnego:
+        keytab: ""
+        principal: ""
+      pam.services: ""
+    custom.authentication.class: ""
+    enable.doAs: "true"
+    global.init.file.location: "$HIVE_CONF_DIR"
+    transport.mode: "binary"
+    async.exec:
+      threads: "100"
+      shutdown.timeout: "10"
+      wait.queue.size: "100"
+      keepalive.time: "10"
+    table.type.mapping: "CLASSIC"
+    session.hook: ""
+    max.start.attempts: "30"
+    long.polling.timeout: "5000L"
+    allow.user.substitution: "true"
+    use.SSL: "false"
+    keystore:
+      path: ""
+      password: ""
+    tez:
+      default.queues: ""
+      sessions.per.default.queue: "1"
+      initialize.default.sessions: "false"
+    session.check.interval: "6h"
+    idle:
+      session.timeout: "7d"
+      operation.timeout: "0ms"
+    logging.operation:
+      enabled: "true"
+      log.location: "${java.io.tmpdir}/${user.name}/operation_logs"
+      verbose: "false"
+      level: "EXECUTION"
+    close.session.on.disconnect: "true"
+    xsrf.filter.enabled: "false"
+    job.credential.prodiver.path: ""
+    in.place.progress: "true"
+    webui:
+      host: "0.0.0.0"
+      port: "10002"
+      max:
+        threads: "50"
+        historic.queries: "25"
+      use:
+        ssl: "false"
+        spnego: "false"
+      keystore:
+        path: ""
+        password: ""
+      spnego:
+        keytab: ""
+        principal: "HTTP/_HOST@EXAMPLE.COM"
+      explain.output: "false"
+      show:
+        graph: "false"
+        stats: "false"
+      max.graph.size: "25"
+    llap.concurrent.queries: "-1"
+    metrics.enabled: "false"
+  hadoop.classpath: ""
+  spark:
+    dynamic.partition.pruning:
+      map.join.only: "false"
+      max.data.size: "100MB"
+    exec.inplace.progress: "true"
+    use:
+      file.size.for.mapjoin: "false"
+      ts.stats.for.mapjoin: "false"
+      op.stats: "true"
+      groupby.shuffle: "true"
+    explain.user: "false"
+    optimize.shuffle.serde: "false"
+    client:
+      future.timeout: "60"
+      connect.timeout: "1000"
+      server.connect.timeout: "90000"
+      secret.bits: "256"
+      rpc:
+        server.address: "localhost"
+        threads: "8"
+        max.size: "52,428,800"
+      channel.log.level: ""
+  prewarm:
+    spark.timeout: "5000ms"
+    enabled: "false"
+    numcontainers: "10"
+  user.install.directory: "hdfs://user/"
+  compute:
+    splits.in.am: "true"
+    query.using.stats: "false"
+  rpc.query.plan: "false"
+  tez:
+    input:
+      format: "org.apache.hadoop.hive.ql.io.HiveInputFormat"
+      generate.consistent.splits: "true"
+    container.size: "-1"
+    java.opts: ""
+    log.level: "INFO"
+    smb.number.waves: "5"
+    cpu.vcores: "-1"
+    auto.reducer.parallelism: "false"
+    max.partition.factor: "2"
+    min.partition.factor: "0.25"
+    exec:
+      print.summary: "false"
+      inplace.progress: "true"
+    dynamic.semijoin.reduction: "true"
+    min.bloom.filter.entries: "1000000"
+    max.bloom.filter.entries: "100000000"
+    bloom.filter.factor: "2.0"
+    bigtable.minsize.semijoin.reduction: "1000000"
+  convert.join.bucket.mapjoin.tez: "false"
+  localize.resource:
+    wait.interval: "5000"
+    num.wait.attempts: "5"
+  llap:
+    execution.mode: "none"
+    client.consistent.splits: "false"
+    daemon:
+      web:
+        port: "15002"
+        ssl: "false"
+      service:
+        principal: ""
+        hosts: "null"
+      task.preemption.metrics.intervals: "30,60,300"
+      download.perm"anent.fns: "false"
+      keytab.file: ""
+      acl: "*"
+      delegation.token.lifetime: "14d"
+    auto:
+      auth: "true"
+      allow.uber: "true"
+      max.input.size: "10*1024*1024*1024L"
+      max.output.size: "1*1024*1024*1024L"
+    object.cache.enabled: "true"
+    io:
+      use.lrfu: "false"
+      lrfu.lambda: "0.01f"
+      enabled: "null"
+      cache.orc.size: "1Gb"
+      threadpool.size: "10"
+      orc.time.counters: "true"
+      memory:
+        mode: "cache"
+        size: "1Gb"
+      allocator:
+        alloc.min: "128Kb"
+        alloc.max: "16Mb"
+        arena.count: "8"
+        direct: "true"
+        nmap:
+          "": "false"
+          path: "/tmp"
+    enforce:
+      tree: "true"
+      vectorized: "true"
+      stats: "true"
+    queue.metrics.percentiles.intervals: "blank"
+    management:
+      rpc.port: "15004"
+      acl: "*"
+    allow.permanent.fns: "true"
+    zk.sm:
+      principal: ""
+      keytab.file: ""
+      connectionString: ""
+  txn:
+    manager: "org.apache.hadoop.hive.ql.lockmgr.DummyTxnManager"
+    strict.locking.mode: "true"
+    timeout: "300"
+    heartbeat.threadpool.size: "5"
+    max.open.batch: "1000"
+    retryable.sqlex.regex: ""
+  timedout.txn.reaper:
+    start: "100s"
+    interval: "180s"
+  writeset.reaper.interval: "60s"
+  max.open.txns: "100000"
+  count.open.txns.interval: "1s"
+  compactor:
+    initiator:
+      "on": "false"
+      failed.compacts.threshold: "2"
+    worker:
+      threads: "0"
+      timeout: "86400"
+    check.interval: "300"
+    cleaner.run.interval: "5000"
+    delta:
+      num.threshold: "10"
+      pct.threshold: "0.1"
+    abortedtxn.threshold: "1000"
+    aborted.txn.time.threshold: "12h"
+    history:
+      retention:
+        succeeded: "3"
+        failed: "3"
+        attempted: "2"
+      reaper.interval: "2m"
+  index:
+    compact.file.ignore.hdfs: "false"
+    compact.query:
+      max.size: "10737418240"
+      max.entries: "10000000"
+  stats:
+    dbclass: "fs"
+    autogather: "true"
+    column.autogather: "false"
+    jdbcdriver: "org.apache.derby.jdbc.EmbeddedDriver"
+    dbconnectionstring: "jdbc:derby:;databaseName=TempStatsStore;create=true"
+    default:
+      publisher: ""
+      aggregator: ""
+    jdbc.timeout: "30"
+    atomic: "false"
+    retries:
+      max: "0"
+      wait: "3000"
+    collect:
+      rawdatasize: "true"
+      tablekeys: "false"
+      scancols: "false"
+    publishers: ""
+    counters: ""
+    reliable: "false"
+    ndv.error: "20.0"
+    key.prefix:
+      max.length: "200"
+      reserve.length: "24"
+    max.variable.length: "100"
+    list.num.entries: "10"
+    map:
+      num.entries: "10"
+    fetch:
+      partition.stats: "true"
+      column.stats: "false"
+      bitvector: "false"
+    join.factor: "1.1"
+    deserialization.factor: "1.1"
+    avg.row.size: "10000"
+    gather.num.threads: "10"
+  analyze.stmt.collect.partlevel.stats: "true"
+  security:
+    authorization:
+      enabled: "false"
+      manager: "org.apache.hadoop.hive.ql.security.authorization.DefaultHiveAuthorizationProvider"
+      createtable:
+        user.grants: ""
+        group.grants: ""
+        role.grants: ""
+        owner.grants: ""
+    authenticator:
+      manager: "org.apache.hadoop.hive.ql.security.HadoopDefaultAuthenticator"
+    metastore:
+      authorization:
+        manager: "org.apache.hadoop.hive.ql.security.authorization.DefaultHiveMetastoreAuthorizationProvider"
+        auth.reads: "true"
+      authenticator.manager: "org.apache.hadoop.hive.ql.security.HadoopDefaultMetastoreAuthenticator"
+  blobstore:
+    supported.schemes: "s3,s3a,s3n"
+    optimizations.enabled: "true"
+    use.blobstore.as.scratchdir: "false"
+  test.mode:
+    "": "false"
+    prefix: "test_"
+    samplefreq: "32"
+    nosamplelist: ""
+  service.metrics:
+    reporter: "JSON_FILE, JMX"
+    codahale.reporter.classes: "org.apache.hadoop.hive.common.metrics.metrics2.JsonFileMetricsReporter, org.apache.hadoop.hive.common.metrics.metrics2.JmxMetricsReporter"
+    file:
+      location: "/tmp/report.json"
+      frequency: "5 seconds"
+    hadoop2:
+      component: "hive"
+      frequency: "30 seconds"
+  cluster.delegation.token.store:
+    class: "org.apache.hadoop.hive.thrift.MemoryTokenStore"
+    zookeeper:
+      connectString: "localhost:2181"
+      znode: "/hive/cluster/delegation"
+      acl: "sasl:hive/host1@EXAMPLE.COM:cdrwa,sasl:hive/host2@EXAMPLE.COM:cdrwa"
+  archive:
+    enabled: "false"
+    har.parentdir.settable: "false"
+  support.concurrency: "false"
+  lock:
+    manager: "org.apache.hadoop.hive.ql.lockmgr.zookeeper.ZooKeeperHiveLockManager"
+    mapred.only.operation: "false"
+    query.string.max.length: "1000000"
+    sleep.between.retries: "60"
+  unlock.numretries: "10"
+  zookeeper:
+    quorum: ""
+    client.port: "2181"
+    session.timeout: "1200000ms"
+    namespace: "hive_zookeeper_namespace"
+    clean.extra.nodes: "false"
+  lockmgr.zookeeper.default.partition.name: "__HIVE_DEFAULT_ZOOKEEPER_PARTITION__"
+  repl:
+    rootdir: "/usr/hive/repl"
+    replica.functions.root.dir: "/usr/hive/repl/functions"
+    partitions.dump.parallelism: "100"
+    approx.max.load.tasks: "10000"
+    dump:
+      metadata.only: "false"
+      include.acid.tables: "false"
+    add.raw.reserved.namespace: "false"
+  hbase:
+    wal.enabled: "true"
+    generatehfiles: "false"
+  cli.print:
+    header: "false"
+    current.db: "false"
+# ===========================================
+metastore:
+  rawstore.impl: "org.apache.hadoop.hive.metastore.ObjectStore"
+  cached.rawstore:
+    impl: "org.apache.hadoop.hive.metastore.ObjectStore"
+    cache.update.frequency: "60"
+    cached.object:
+      whitelist: "*"
+      blacklist: ""
+    max.cache.memory: "1gb"
+# ===========================================
+javax.jdo:
+  option:
+    ConnectionURL: "jdbc:derby:;databaseName=metastore_db;create=true"
+    ConnectionDriverName: "org.apache.derby.jdbc.EmbeddedDriver"
+    DetachAllOnCommit: "true"
+    NonTransactionalRead: "true"
+    ConnectionUserName: "APP"
+    ConnectionPassword: "mine"
+    Multithreaded: "true"
+  PersistenceManagerFactoryClass: "org.datanucleus.jdo.JDOPersistenceManagerFactory"
+# ===========================================
+datanucleus:
+  connectionPoolingType: "HikariCP"
+  connectionPool.maxPoolSize: "10"
+  schema:
+    validateTables: "false"
+    validateColumns: "false"
+    validateConstraints: "false"
+    autoCreateAll: "false"
+  storeManagerType: "rdbms"
+  autoStartMechanismMode: "checked"
+  transactionIsolation: "read-committed"
+  cache.level2:
+    "": "false"
+    type: "none"
+  identifierFactory: "datanucleus"
+  plugin.pluginRegistryBundleCheck: "LOG"
+# ===========================================
+mapred.reduce.tasks: "-1"
+#============================================
+mapreduce.job.reduces: "-1"

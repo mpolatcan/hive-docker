@@ -1,2 +1,14 @@
 # hive-docker
-Scalable Hive Docker image with built-in Hadoop works at Docker and Kubernetes
+
+![](https://github.com/mpolatcan/hive-docker/workflows/hive-docker/badge.svg)
+
+Scalable **Apache Hive** Docker image with built-in **Apache Hadoop** works at **Docker* Compose* and **Kubernetes**.
+
+
+## To Do
+
+- Documentation
+- Kubernetes Deployment
+- External Metastore databases
+- Kustomize ready manifests
+- Standalone metastore

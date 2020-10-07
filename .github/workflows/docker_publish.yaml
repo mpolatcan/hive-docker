@@ -1,0 +1,42 @@
+name: hive-docker
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-setup-image:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repository: [hive]
+        java_version: [8]
+        hive_version: [3.1.2, 2.3.7]
+        hadoop_version: [3.3.0, 3.2.1, 3.1.4, 2.10.1, 2.9.2, 2.8.5, 2.7.7]
+        exclude:
+          - hadoop_version: 3.3.0
+            hive_version: 2.3.7
+          - hadoop_version: 3.2.1
+            hive_version: 2.3.7
+          - haddop_version: 3.1.4
+            hive_version: 2.3.7
+          - hadoop_version: 2.10.1
+            hive_version: 3.1.2
+          - hadoop_version: 2.9.2
+            hive_version: 3.1.2
+          - hadoop_version: 2.8.5
+            hive_version: 3.1.2
+          - hadoop_version: 2.7.7
+            hive_version: 3.1.2
+    steps:
+      - uses: actions/checkout@v1
+      - run: echo ${{secrets.DOCKER_PASSWORD}} | docker login -u ${{secrets.DOCKER_USERNAME}} --password-stdin
+      - run: docker build -q
+          -t ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.hive_version}}-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
+          --build-arg HADOOP_VERSION=${{matrix.hadoop_version}}
+          --build-arg JAVA_VERSION=${{matrix.java_version}}
+          --build-arg HIVE_VERSION=${{matrix.hive_version}}
+          src/setup
+      - run: docker push ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.hive_version}}-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
+      - run: docker rmi ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.hive_version}}-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
