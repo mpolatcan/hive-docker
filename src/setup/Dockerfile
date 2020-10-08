@@ -8,8 +8,9 @@ MAINTAINER Mutlu Polatcan <mutlupolatcan@gmail.com>
 ARG HIVE_VERSION=2.3.6
 ARG HIVE_DOWNLOAD_LINK="http://downloads.apache.org/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz"
 
-ENV HIVE_HOME "${HDUSER_HOME}/hive"
-ENV PATH $PATH:$HIVE_HOME/bin
+ENV HIVE_HOME=${HDUSER_HOME}/hive
+ENV PATH=$PATH:$HIVE_HOME/bin \
+    HIVE_CONF_DIR=${HIVE_HOME}/conf
 
 ADD entrypoint.sh ${HDUSER_HOME}/hive_entrypoint.sh
 ADD config_loader.sh ${HDUSER_HOME}/hive_config_loader.sh
