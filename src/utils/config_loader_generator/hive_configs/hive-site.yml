@@ -536,7 +536,7 @@ hive:
         principal: "NULL"
         hosts: "null"
       task.preemption.metrics.intervals: "30,60,300"
-      download.perm"anent.fns: "false"
+      download.permanent.fns: "false"
       keytab.file: "NULL"
       acl: "*"
       delegation.token.lifetime: "14d"
