@@ -10,6 +10,9 @@ function start_hive() {
 # Start Hadoop services with loaded configurations
 ./hadoop_entrypoint.sh $1
 
+# Load Hive configs
+./hive_config_loader.sh
+
 # Start Hive with embedded Derby database
 start_hive
 

@@ -7,19 +7,19 @@ hive:
       subdir.inherit.perms: "false"
     execute.setugi: "true"
     event:
-      listeners: ""
+      listeners: "NULL"
       expiry.duration: "0"
       clean.freq: "0"
-    partition.inherit.table.properties: ""
-    end.function.listeners: ""
+    partition.inherit.table.properties: "NULL"
+    end.function.listeners: "NULL"
     connect.retries: "3"
     client:
       connect.retry.delay: "1"
       socket.timeout: "600"
-      kerberos.principal: ""
+      kerberos.principal: "NULL"
     batch.retrieve.max: "300"
     ds:
-      connection.url.hook: ""
+      connection.url.hook: "NULL"
       retry:
         attempts: "1"
         interval: "1000"
@@ -31,7 +31,7 @@ hive:
       tcp.keepalive: "true"
     sasl.enabled: "false"
     kerberos:
-      keytab.file: ""
+      keytab.file: "NULL"
       principal: "hive-metastore/_HOST@EXAMPLE.COM"
     cache.pinobjtypes: "Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
     authorization.storage.checks: "false"
@@ -58,8 +58,8 @@ hive:
         size: "600s"
         ttl: "1"
       file.metadata.threads: "1"
-    pre.event.listeners: ""
-    token.signature: ""
+    pre.event.listeners: "NULL"
+    token.signature: "NULL"
     metrics.enabled: "false"
   execution:
     engine: "mr"
@@ -80,9 +80,9 @@ hive:
       "": "false"
       thread.number: "8"
     rowoffset: "false"
-    pre.hooks: ""
-    post.hooks: ""
-    failure.hooks: ""
+    pre.hooks: "NULL"
+    post.hooks: "NULL"
+    failure.hooks: "NULL"
     counters.pull.interval: "1000"
     dynamic.partition:
       "": "true"
@@ -108,7 +108,7 @@ hive:
     stagingdir: ".hive-staging"
     orc:
       memory.pool: "0.5"
-      write.format: ""
+      write.format: "NULL"
       base.delta.ratio: "8"
       default:
         stripe.size: "64*1024*1024"
@@ -129,10 +129,10 @@ hive:
     input.listing.max.threads: "0"
     submit.local.task.via.child: "true"
   jar:
-    path: ""
+    path: "NULL"
     directory: "null"
-  aux.jars.path: ""
-  reloadable.aux.jars.path: ""
+  aux.jars.path: "NULL"
+  reloadable.aux.jars.path: "NULL"
   scratch.dir.permission: "700"
   hadoop.supports.splittable.combineinputformat: "false"
   map:
@@ -267,7 +267,7 @@ hive:
     returnpath.hiveop: "false"
     cnf.maxnodes: "-1"
   auto.progress.timeout: "0"
-  table.parameters.default: ""
+  table.parameters.default: "NULL"
   variable.subsitute: "true"
   error.on.empty.partition: "false"
   exim.uri.scheme.whitelist: "hdfs,pfile,file"
@@ -287,7 +287,7 @@ hive:
       includefuncname: "false"
   start.cleanup.scratchdir: "false"
   scratchdir.lock: "false"
-  output.file.extension: ""
+  output.file.extension: "NULL"
   insert.into.multilevel.dirs: "false"
   conf.validation: "true"
   fetch:
@@ -314,7 +314,7 @@ hive:
   async.log.enabled: "true"
   msck.repair.batch.size: "0"
   query:
-    lifetime.hooks: ""
+    lifetime.hooks: "NULL"
     result.fileformat: "SequenceFile"
   remove.orderby.in.subquery: "true:"
   default:
@@ -325,7 +325,7 @@ hive:
       check: "true"
   lazysimple.extended_boolean_literal: "false"
   io:
-    exception.handlers: ""
+    exception.handlers: "NULL"
     rcfile:
       record.interval: "2147483647"
       column.number.conf: "0"
@@ -363,7 +363,7 @@ hive:
       vectorized.input.format: "true"
       vector.serde.deserialize: "false"
       row.serde.deserialize: "false"
-    input.format.excludes: ""
+    input.format.excludes: "NULL"
   server2:
     thrift:
       port: "10000"
@@ -382,37 +382,37 @@ hive:
         cookie:
           auth.enabled: "true"
           max.age: "86400s"
-          path: ""
-          domain: ""
+          path: "NULL"
+          domain: "NULL"
           is.secure: "true"
           is.httponly: "true"
       sasl.qop: "auth"
     authentication:
       "": "NONE"
       kerberos:
-        keytab: ""
-        principal: ""
-      client.kerberos.principal: ""
+        keytab: "NULL"
+        principal: "NULL"
+      client.kerberos.principal: "NULL"
       ldap:
-        url: ""
-        basenDN: ""
+        url: "NULL"
+        basenDN: "NULL"
         guidKey: "uid"
-        Domain: ""
-        groupDNPattern: ""
-        groupFilter: ""
+        Domain: "NULL"
+        groupDNPattern: "NULL"
+        groupFilter: "NULL"
         groupMembershipKey: "member"
         userMembershipKey: "null"
         groupClassKey: "groupOfNames"
-        userDNPattern: ""
-        userFilter: ""
-        customLDAPQuery: ""
-        binddn: ""
-        bindpw: ""
+        userDNPattern: "NULL"
+        userFilter: "NULL"
+        customLDAPQuery: "NULL"
+        binddn: "NULL"
+        bindpw: "NULL"
       spnego:
-        keytab: ""
-        principal: ""
-      pam.services: ""
-    custom.authentication.class: ""
+        keytab: "NULL"
+        principal: "NULL"
+      pam.services: "NULL"
+    custom.authentication.class: "NULL"
     enable.doAs: "true"
     global.init.file.location: "$HIVE_CONF_DIR"
     transport.mode: "binary"
@@ -422,16 +422,16 @@ hive:
       wait.queue.size: "100"
       keepalive.time: "10"
     table.type.mapping: "CLASSIC"
-    session.hook: ""
+    session.hook: "NULL"
     max.start.attempts: "30"
     long.polling.timeout: "5000L"
     allow.user.substitution: "true"
     use.SSL: "false"
     keystore:
-      path: ""
-      password: ""
+      path: "NULL"
+      password: "NULL"
     tez:
-      default.queues: ""
+      default.queues: "NULL"
       sessions.per.default.queue: "1"
       initialize.default.sessions: "false"
     session.check.interval: "6h"
@@ -445,7 +445,7 @@ hive:
       level: "EXECUTION"
     close.session.on.disconnect: "true"
     xsrf.filter.enabled: "false"
-    job.credential.prodiver.path: ""
+    job.credential.prodiver.path: "NULL"
     in.place.progress: "true"
     webui:
       host: "0.0.0.0"
@@ -457,10 +457,10 @@ hive:
         ssl: "false"
         spnego: "false"
       keystore:
-        path: ""
-        password: ""
+        path: "NULL"
+        password: "NULL"
       spnego:
-        keytab: ""
+        keytab: "NULL"
         principal: "HTTP/_HOST@EXAMPLE.COM"
       explain.output: "false"
       show:
@@ -469,7 +469,7 @@ hive:
       max.graph.size: "25"
     llap.concurrent.queries: "-1"
     metrics.enabled: "false"
-  hadoop.classpath: ""
+  hadoop.classpath: "NULL"
   spark:
     dynamic.partition.pruning:
       map.join.only: "false"
@@ -491,7 +491,7 @@ hive:
         server.address: "localhost"
         threads: "8"
         max.size: "52,428,800"
-      channel.log.level: ""
+      channel.log.level: "NULL"
   prewarm:
     spark.timeout: "5000ms"
     enabled: "false"
@@ -506,7 +506,7 @@ hive:
       format: "org.apache.hadoop.hive.ql.io.HiveInputFormat"
       generate.consistent.splits: "true"
     container.size: "-1"
-    java.opts: ""
+    java.opts: "NULL"
     log.level: "INFO"
     smb.number.waves: "5"
     cpu.vcores: "-1"
@@ -533,11 +533,11 @@ hive:
         port: "15002"
         ssl: "false"
       service:
-        principal: ""
+        principal: "NULL"
         hosts: "null"
       task.preemption.metrics.intervals: "30,60,300"
       download.perm"anent.fns: "false"
-      keytab.file: ""
+      keytab.file: "NULL"
       acl: "*"
       delegation.token.lifetime: "14d"
     auto:
@@ -574,16 +574,16 @@ hive:
       acl: "*"
     allow.permanent.fns: "true"
     zk.sm:
-      principal: ""
-      keytab.file: ""
-      connectionString: ""
+      principal: "NULL"
+      keytab.file: "NULL"
+      connectionString: "NULL"
   txn:
     manager: "org.apache.hadoop.hive.ql.lockmgr.DummyTxnManager"
     strict.locking.mode: "true"
     timeout: "300"
     heartbeat.threadpool.size: "5"
     max.open.batch: "1000"
-    retryable.sqlex.regex: ""
+    retryable.sqlex.regex: "NULL"
   timedout.txn.reaper:
     start: "100s"
     interval: "180s"
@@ -622,8 +622,8 @@ hive:
     jdbcdriver: "org.apache.derby.jdbc.EmbeddedDriver"
     dbconnectionstring: "jdbc:derby:;databaseName=TempStatsStore;create=true"
     default:
-      publisher: ""
-      aggregator: ""
+      publisher: "NULL"
+      aggregator: "NULL"
     jdbc.timeout: "30"
     atomic: "false"
     retries:
@@ -633,8 +633,8 @@ hive:
       rawdatasize: "true"
       tablekeys: "false"
       scancols: "false"
-    publishers: ""
-    counters: ""
+    publishers: "NULL"
+    counters: "NULL"
     reliable: "false"
     ndv.error: "20.0"
     key.prefix:
@@ -658,10 +658,10 @@ hive:
       enabled: "false"
       manager: "org.apache.hadoop.hive.ql.security.authorization.DefaultHiveAuthorizationProvider"
       createtable:
-        user.grants: ""
-        group.grants: ""
-        role.grants: ""
-        owner.grants: ""
+        user.grants: "NULL"
+        group.grants: "NULL"
+        role.grants: "NULL"
+        owner.grants: "NULL"
     authenticator:
       manager: "org.apache.hadoop.hive.ql.security.HadoopDefaultAuthenticator"
     metastore:
@@ -677,7 +677,7 @@ hive:
     "": "false"
     prefix: "test_"
     samplefreq: "32"
-    nosamplelist: ""
+    nosamplelist: "NULL"
   service.metrics:
     reporter: "JSON_FILE, JMX"
     codahale.reporter.classes: "org.apache.hadoop.hive.common.metrics.metrics2.JsonFileMetricsReporter, org.apache.hadoop.hive.common.metrics.metrics2.JmxMetricsReporter"
@@ -704,7 +704,7 @@ hive:
     sleep.between.retries: "60"
   unlock.numretries: "10"
   zookeeper:
-    quorum: ""
+    quorum: "NULL"
     client.port: "2181"
     session.timeout: "1200000ms"
     namespace: "hive_zookeeper_namespace"
@@ -733,7 +733,7 @@ metastore:
     cache.update.frequency: "60"
     cached.object:
       whitelist: "*"
-      blacklist: ""
+      blacklist: "NULL"
     max.cache.memory: "1gb"
 # ===========================================
 javax.jdo:
