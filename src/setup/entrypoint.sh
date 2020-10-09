@@ -17,7 +17,7 @@ function configure_metastore() {
         __log__ "Hive version is ${HIVE_VERSION_TOKENS[0]}.${HIVE_VERSION_TOKENS[1]}.0"
 
         __log__ "Creating database ${POSTGRES_DB}..."
-        psql postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT:=5432}/${POSTGRES_DB} -c 'CREATE DATABASE ${POSTGRES_DB};'
+        psql postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT:=5432} -c "CREATE DATABASE "${POSTGRES_DB}";"
 
         __log__ "Running SQL script ${HIVE_HOME}/scripts/metastore/upgrade/postgres/hive-schema-${HIVE_VERSION_TOKENS[0]}.${HIVE_VERSION_TOKENS[1]}.0.postgres.sql..."
         psql postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT:=5432}/${POSTGRES_DB} -a \
