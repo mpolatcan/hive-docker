@@ -5,6 +5,8 @@ services:
     container_name: hive
     hostname: hive
     environment:
+      HIVE_SERVICES: |
+        metastore
       JAVAX_JDO_OPTION_CONNECTIONURL: "jdbc:postgresql://postgres:5432/metastore"
       JAVAX_JDO_OPTION_CONNECTIONDRIVERNAME: "org.postgresql.Driver"
       JAVAX_JDO_OPTION_CONNECTIONUSERNAME: "postgres"
