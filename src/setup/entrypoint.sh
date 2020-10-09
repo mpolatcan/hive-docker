@@ -20,8 +20,9 @@ function configure_metastore() {
         psql postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT:=5432} -c "CREATE DATABASE "${POSTGRES_DB}";"
 
         __log__ "Running SQL script ${HIVE_HOME}/scripts/metastore/upgrade/postgres/hive-schema-${HIVE_VERSION_TOKENS[0]}.${HIVE_VERSION_TOKENS[1]}.0.postgres.sql..."
+        cd ${HIVE_HOME}/scripts/metastore/upgrade/postgres/
         psql postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT:=5432}/${POSTGRES_DB} -a \
-             -f ${HIVE_HOME}/scripts/metastore/upgrade/postgres/hive-schema-${HIVE_VERSION_TOKENS[0]}.${HIVE_VERSION_TOKENS[1]}.0.postgres.sql
+             -f hive-schema-${HIVE_VERSION_TOKENS[0]}.${HIVE_VERSION_TOKENS[1]}.0.postgres.sql
     fi
 
     schematool -dbType ${HIVE_METASTORE_DB_TYPE:=derby} -initSchema
