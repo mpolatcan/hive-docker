@@ -53,6 +53,10 @@ function main() {
     configure_hive
 
     for service in ${HIVE_SERVICES[@]}; do
+        if [[ "$service" == "metastore" ]]; then
+            configure_metastore
+        fi
+
         hive --service $service &
     done
 
