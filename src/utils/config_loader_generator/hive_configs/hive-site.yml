@@ -1,6 +1,6 @@
 hive:
   metastore:
-    local: "true"
+    uris: "NULL"
     uri.selection: "RANDOM"
     warehouse:
       dir: "/user/hive/warehouse"
@@ -27,7 +27,7 @@ hive:
       min.threads: "200"
       max:
         threads: "1000"
-        message.size: "100*1024*1024"
+        message.size: "104857600"
       tcp.keepalive: "true"
     sasl.enabled: "false"
     kerberos:
@@ -66,7 +66,7 @@ hive:
     mode: "container"
   exec:
     reducers:
-      bytes.per.reducer: "256,000,000"
+      bytes.per.reducer: "256000000"
       max: "1009"
     scratchdir: "/tmp/hive"
     local.scratchdir: "/tmp/\\${user.name\\}"
@@ -111,10 +111,10 @@ hive:
       write.format: "NULL"
       base.delta.ratio: "8"
       default:
-        stripe.size: "64*1024*1024"
-        block.size: "256*1024*1024"
+        stripe.size: "67108864"
+        block.size: "268435456"
         row.index.stride: "10000"
-        buffer.size: "256*1024"
+        buffer.size: "262144"
         block.padding:
           "": "true"
           tolerance: "0.05"
@@ -371,7 +371,7 @@ hive:
       min.worker.threads: "5"
       max.worker.threads: "500"
       worker.keepalive.time: "60"
-      max.message.size: "100*1024*1024"
+      max.message.size: "104857600"
       http:
         port: "10001"
         path: "cliservice"
@@ -490,7 +490,7 @@ hive:
       rpc:
         server.address: "localhost"
         threads: "8"
-        max.size: "52,428,800"
+        max.size: "52428800"
       channel.log.level: "NULL"
   prewarm:
     spark.timeout: "5000ms"

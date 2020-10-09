@@ -8,3 +8,6 @@ services:
       HADOOP_DAEMONS: |
         namenode
         datanode
+    ports:
+    - 9870:9870
+    - 10002:10002
