@@ -69,7 +69,7 @@ hive:
       bytes.per.reducer: "256,000,000"
       max: "1009"
     scratchdir: "/tmp/hive"
-    local.scratchdir: "/tmp/${user.name\\}"
+    local.scratchdir: "/tmp/\\${user.name\\}"
     script:
       maxerrsize: "100000"
       allow.partial.consumption: "false"
@@ -440,7 +440,7 @@ hive:
       operation.timeout: "0ms"
     logging.operation:
       enabled: "true"
-      log.location: "${java.io.tmpdir\\}/${user.name\\}/operation_logs"
+      log.location: "\\${java.io.tmpdir\\}/\\${user.name\\}/operation_logs"
       verbose: "false"
       level: "EXECUTION"
     close.session.on.disconnect: "true"
