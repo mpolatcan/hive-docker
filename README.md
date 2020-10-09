@@ -9,6 +9,4 @@ Scalable **Apache Hive** Docker image with built-in **Apache Hadoop** works at *
 
 - Documentation
 - Kubernetes Deployment
-- External Metastore databases
 - Kustomize ready manifests
-- Standalone metastore
