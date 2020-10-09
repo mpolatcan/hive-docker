@@ -5,6 +5,9 @@ services:
     container_name: hive
     hostname: hive
     environment:
+      HADOOP_DAEMONS: |
+        namenode
+        datanode
       HIVE_SERVICES: |
         metastore
       JAVAX_JDO_OPTION_CONNECTIONURL: "jdbc:postgresql://postgres:5432/metastore"

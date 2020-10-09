@@ -48,7 +48,7 @@ function main() {
     ./hive_config_loader.sh
 
     # Check HDFS is ready
-    health_checker "namenode" "${DFS_NAMENODE_HOSTNAME}" "${DFS_NAMENODE_HTTP_PORT:=9870}"
+    health_checker "namenode" "${DFS_NAMENODE_HOSTNAME:=localhost}" "${DFS_NAMENODE_HTTP_PORT:=9870}"
 
     configure_hive
 
