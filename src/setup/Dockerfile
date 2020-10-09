@@ -10,7 +10,7 @@ ARG HIVE_DOWNLOAD_LINK="http://downloads.apache.org/hive/hive-${HIVE_VERSION}/ap
 ARG POSTGRESQL_DRIVER_DOWNLOAD_LINK="https://jdbc.postgresql.org/download/postgresql-42.2.16.jar"
 
 ENV HIVE_HOME=${HDUSER_HOME}/hive
-ENV PATH=$PATH:$HIVE_HOME/sbin \
+ENV PATH=$PATH:$HIVE_HOME/bin \
     HIVE_CONF_DIR=${HIVE_HOME}/conf \
     HIVE_VERSION=$HIVE_VERSION \
     POSTGRES_HOST="NULL" \

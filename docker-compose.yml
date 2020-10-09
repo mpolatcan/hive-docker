@@ -8,6 +8,24 @@ services:
       HADOOP_DAEMONS: |
         namenode
         datanode
+      JAVAX_JDO_OPTION_CONNECTIONURL: "jdbc:postgresql//postgres:5432/metastore"
+      JAVAX_JDO_OPTION_CONNECTIONDRIVERNAME: "org.postgresql.Driver"
+      JAVAX_JDO_OPTION_CONNECTIONUSERNAME: "postgres"
+      JAVAX_JDO_OPTION_CONNECTIONPASSWORD: "postgres"
+      HIVE_METASTORE_DB_TYPE: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_HOST: "postgres"
+      POSTGRES_DB: "metastore"
     ports:
     - 9870:9870
-    - 10002:10002
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    hostname: postgres
+    ports:
+    - 5432:5432
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"

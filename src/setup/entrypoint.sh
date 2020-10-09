@@ -16,7 +16,7 @@ function configure_metastore() {
         IFS='.' read -r -a HIVE_VERSION_TOKENS <<< "$HIVE_VERSION"
         __log__ "Hive version is ${HIVE_VERSION_TOKENS[0]}.${HIVE_VERSION_TOKENS[1]}.0"
 
-        psql postgresql://${POSTGRES_USER}:$/{POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT:=5432}/${POSTGRES_DB} -a \
+        psql postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT:=5432}/${POSTGRES_DB} -a \
              -f ${HIVE_HOME}/scripts/metastore/upgrade/postgres/hive-schema-${HIVE_VERSION_TOKENS[0]}.${HIVE_VERSION_TOKENS[1]}.0.postgres.sql
     fi
 
