@@ -32,7 +32,9 @@ RUN apt-get update && \
     rm -r ${HDUSER_HOME}/apache-hive-${HIVE_VERSION}-bin && \
     rm apache-hive-${HIVE_VERSION}-bin.tar.gz && \
     chown -R hduser:hadoop ${HIVE_HOME} && \
-    chmod +x ${HDUSER_HOME}/hive_entrypoint.sh ${HDUSER_HOME}/hive_config_loader.sh
+    chmod +x ${HDUSER_HOME}/hive_entrypoint.sh ${HDUSER_HOME}/hive_config_loader.sh && \
+    rm ${HIVE_HOME}/lib/guava-*.jar && \
+    cp ${HADOOP_HOME}/share/hadoop/common/lib/guava-*.jar ${HIVE_HOME}/lib
 
 USER hduser
 ENTRYPOINT ["./hive_entrypoint.sh", "hive"]
