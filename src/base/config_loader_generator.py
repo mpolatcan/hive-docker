@@ -66,7 +66,7 @@ class ConfigLoaderGenerator:
             _load_fn_calls.append(Constants.CONFIGURATION_TAG_APPEND_FMT.format(filename=config_filename))
             load_fn_calls.extend(_load_fn_calls)
 
-        open("{loc}/config_loader.sh".format(loc=self.__config[Constants.KEY_OUTPUT_DIR]), "w").write(
+        open("config_loader.sh", "w").write(
             self.__config[Constants.KEY_CONFIG_LOADER_SH_TEMPLATE].format(load_fn_calls="\n".join(load_fn_calls))
         )
 
