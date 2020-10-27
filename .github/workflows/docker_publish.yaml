@@ -57,6 +57,7 @@ jobs:
             hive_version: 3.1.2
           - hadoop_version: 2.7.7
             hive_version: 3.1.2
+    needs: build-base-image
     steps:
       - uses: actions/checkout@v2
       - run: echo ${{secrets.DOCKER_PASSWORD}} | docker login -u ${{secrets.DOCKER_USERNAME}} --password-stdin
