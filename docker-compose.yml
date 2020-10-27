@@ -10,6 +10,8 @@ services:
         datanode
       HIVE_SERVICES: |
         metastore
+      FS_DEFAULTFS: "hdfs://0.0.0.0:9000"
+      DFS_NAMENODE_HTTP_PORT: "50010"
       JAVAX_JDO_OPTION_CONNECTIONURL: "jdbc:postgresql://postgres:5432/metastore"
       JAVAX_JDO_OPTION_CONNECTIONDRIVERNAME: "org.postgresql.Driver"
       JAVAX_JDO_OPTION_CONNECTIONUSERNAME: "postgres"
@@ -20,14 +22,14 @@ services:
       POSTGRES_HOST: "postgres"
       POSTGRES_DB: "metastore"
     ports:
-    - 9870:9870
+      - 50070:50070
 
   postgres:
     image: postgres
     container_name: postgres
     hostname: postgres
     ports:
-    - 5432:5432
+      - 5432:5432
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
