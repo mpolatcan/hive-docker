@@ -20,5 +20,5 @@ config_loader_sh_template: |
   {load_fn_calls}
 
 config_files:
-  - path: hive_configs/hive-site.yml
+  - path: hive-site.yml
     filename: hive-site.xml
