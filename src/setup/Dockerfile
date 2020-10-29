@@ -7,18 +7,17 @@ MAINTAINER Mutlu Polatcan <mutlupolatcan@gmail.com>
 
 ARG HIVE_VERSION=2.3.6
 ARG POSTGRESQL_DRIVER_VERSION="42.2.16"
-ARG HIVE_DOWNLOAD_LINK="http://downloads.apache.org/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz"
+ARG HIVE_ZIP_FOLDER_NAME="apache-hive-${HIVE_VERSION}-bin"
+ARG HIVE_DOWNLOAD_LINK="http://downloads.apache.org/hive/hive-${HIVE_VERSION}/${HIVE_ZIP_FOLDER_NAME}.tar.gz"
 ARG POSTGRESQL_DRIVER_DOWNLOAD_LINK="https://jdbc.postgresql.org/download/postgresql-${POSTGRESQL_DRIVER_VERSION}.jar"
 
 ENV HIVE_VERSION=$HIVE_VERSION
 
 RUN wget ${HIVE_DOWNLOAD_LINK} ${POSTGRESQL_DRIVER_DOWNLOAD_LINK} && \
-    tar -xvzf apache-hive-${HIVE_VERSION}-bin.tar.gz -C ${HDUSER_HOME} && \
-    mv ${HDUSER_HOME}/apache-hive-${HIVE_VERSION}-bin/* ${HIVE_HOME} && \
+    tar -xvzf ${HIVE_ZIP_FOLDER_NAME}.tar.gz -C ${HDUSER_HOME} && \
+    mv ${HDUSER_HOME}/${HIVE_ZIP_FOLDER_NAME}/* ${HIVE_HOME} && \
     mv postgresql-${POSTGRESQL_DRIVER_VERSION}.jar ${HIVE_HOME}/lib && \
-    rm -r ${HDUSER_HOME}/apache-hive-${HIVE_VERSION}-bin && \
-    rm apache-hive-${HIVE_VERSION}-bin.tar.gz && \
-    rm ${HIVE_HOME}/lib/guava-*.jar && \
+    rm -r ${HDUSER_HOME}/${HIVE_ZIP_FOLDER_NAME} ${HIVE_ZIP_FOLDER_NAME}.tar.gz ${HIVE_HOME}/lib/guava-*.jar && \
     cp ${HADOOP_HOME}/share/hadoop/common/lib/guava-*.jar ${HIVE_HOME}/lib && \
     chown -R hduser:hadoop ${HIVE_HOME}
 
