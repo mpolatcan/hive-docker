@@ -2,7 +2,7 @@
 
 ![](https://github.com/mpolatcan/hive-docker/workflows/hive-docker/badge.svg)
 
-Scalable **Apache Hive** Docker image with built-in **Apache Hadoop** works at **Docker* Compose* and **Kubernetes**.
+Scalable **Apache Hive** Docker image with built-in **Apache Hadoop** works at **Docker Compose** and **Kubernetes**.
 
 
 ## To Do
@@ -10,3 +10,4 @@ Scalable **Apache Hive** Docker image with built-in **Apache Hadoop** works at *
 - Documentation
 - Kubernetes Deployment
 - Kustomize ready manifests
+- Docker-compose examples

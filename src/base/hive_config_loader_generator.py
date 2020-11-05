@@ -18,7 +18,7 @@ class Constants:
     CONFIGURATION_TAG_APPEND_FMT = "printf \"</configuration>\" >> \"${{HIVE_CONF_DIR}}/{filename}\"\n"
 
 
-class ConfigLoaderGenerator:
+class HiveConfigLoaderGenerator:
     def __init__(self, config_filename):
         self.__config = yaml.safe_load(open(config_filename, "r"))
 
@@ -72,4 +72,4 @@ class ConfigLoaderGenerator:
 
 
 if __name__ == "__main__":
-    ConfigLoaderGenerator(sys.argv[1]).generate()
+    HiveConfigLoaderGenerator(sys.argv[1]).generate()

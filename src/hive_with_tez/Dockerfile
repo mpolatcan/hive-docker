@@ -1,7 +1,8 @@
-ARG HADOOP_VERSION=3.2.1
-ARG JAVA_VERSION=8
+ARG HADOOP_VERSION=""
+ARG JAVA_VERSION=""
+ARG TEZ_VERSION=""
 
-FROM mpolatcan/hive:base-hadoop-${HADOOP_VERSION}-java${JAVA_VERSION}
+FROM mpolatcan/hive:base-hadoop-${HADOOP_VERSION}-tez-${TEZ_VERSION}-java${JAVA_VERSION}
 
 MAINTAINER Mutlu Polatcan <mutlupolatcan@gmail.com>
 
@@ -13,13 +14,16 @@ ARG POSTGRESQL_DRIVER_DOWNLOAD_LINK="https://jdbc.postgresql.org/download/postgr
 
 ENV HIVE_VERSION=$HIVE_VERSION
 
+ADD entrypoint.sh ./hive_entrypoint.sh
+
 RUN wget ${HIVE_DOWNLOAD_LINK} ${POSTGRESQL_DRIVER_DOWNLOAD_LINK} && \
     tar -xvzf ${HIVE_ZIP_FOLDER_NAME}.tar.gz -C ${HDUSER_HOME} && \
     mv ${HDUSER_HOME}/${HIVE_ZIP_FOLDER_NAME}/* ${HIVE_HOME} && \
     mv postgresql-${POSTGRESQL_DRIVER_VERSION}.jar ${HIVE_HOME}/lib && \
     rm -r ${HDUSER_HOME}/${HIVE_ZIP_FOLDER_NAME} ${HIVE_ZIP_FOLDER_NAME}.tar.gz ${HIVE_HOME}/lib/guava-*.jar && \
     cp ${HADOOP_HOME}/share/hadoop/common/lib/guava-*.jar ${HIVE_HOME}/lib && \
-    chown -R hduser:hadoop ${HIVE_HOME}
+    chown -R hduser:hadoop ${HIVE_HOME} && \
+    chmod +x hive_entrypoint.sh
 
 USER hduser
 ENTRYPOINT ["./hive_entrypoint.sh", "hive"]

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # $1: message
 function __log__() {
     echo "[$(date '+%d/%m/%Y %H:%M:%S')] -> $1"
@@ -41,8 +41,8 @@ function configure_metastore() {
 }
 
 function main() {
-    # Start Hadoop services with loaded configurations
-    ./hadoop_entrypoint.sh $1
+    # Start Hadoop services with loaded configuration with Tez support
+    ./tez_entrypoint.sh $1
 
     # Load Hive configs
     ./hive_config_loader.sh
