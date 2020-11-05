@@ -93,7 +93,7 @@ jobs:
           --build-arg JAVA_VERSION=${{matrix.java_version}}
           --build-arg HIVE_VERSION=${{matrix.hive_version}}
           --build-arg POSTGRESQL_DRIVER_VERSION=${{matrix.postgresql_driver_version}}
-          src/setup
+          src/hive
       - run: docker push ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.hive_version}}-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
       - run: docker rmi ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.hive_version}}-hadoop-${{matrix.hadoop_version}}-java${{matrix.java_version}}
 
@@ -133,6 +133,6 @@ jobs:
           --build-arg HIVE_VERSION=${{matrix.hive_version}}
           --build-arg TEZ_VERSION=${{matrix.tez_version}}
           --build-arg POSTGRESQL_DRIVER_VERSION=${{matrix.postgresql_driver_version}}
-          src/setup
+          src/hive_with_tez
       - run: docker push ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.hive_version}}-hadoop-${{matrix.hadoop_version}}-tez-${{matrix.tez_version}}-java${{matrix.java_version}}
       - run: docker rmi ${{secrets.DOCKER_USERNAME}}/${{matrix.repository}}:${{matrix.hive_version}}-hadoop-${{matrix.hadoop_version}}-tez-${{matrix.tez_version}}-java${{matrix.java_version}}
